@@ -149,6 +149,7 @@ async function showBlogs() {
             // console.log(currentTime.toDate());
 
             const autherDetails = await getAutherData(blogCreatorId);
+            console.log(autherDetails);
 
             const postElement = document.createElement("div");
             postElement.setAttribute("class", "border p-3 mt-2 mb-3 bgBlogPostColor");
@@ -156,7 +157,7 @@ async function showBlogs() {
             postElement.setAttribute("id", doc.id);
             const contentOfPost = `<div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <img src=${autherDetails?.profilePic ||
+                <img src=${autherDetails?.updatedProfilePic ||
                 "../Assets/dummy-image.jpg"
                 } alt="" class="rounded me-3"
                     style="width: 70px; height: 70px" />
@@ -248,7 +249,7 @@ const deleteBlog = async (uId) => {
     Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Your work has been saved',
+        title: 'Blog Deleted Successfully',
         showConfirmButton: false,
         timer: 1500
     })

@@ -80,7 +80,7 @@ async function showBlogs() {
             postElement.setAttribute("id", doc.id);
             const contentOfPost = `<div class="d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-                <img src=${autherDetails?.profilePic ||
+                <img src=${autherDetails?.updatedProfilePic ||
                 "../Assets/dummy-image.jpg"
                 } alt="" class="rounded me-3"
                     style="width: 70px; height: 70px" />

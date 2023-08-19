@@ -34,8 +34,8 @@
     <section class="sizing mt-4">
         <div class="border p-4 mt-2 mb-3 editProfileBgColor" style="border-radius: 10px">
             <img src="../Assets/dummy-image.jpg" alt="" class="rounded me-3 editProfileImg mb-3"
-                style="width: 250px; height: 250px" />
-            <input type="file" accept="image/*" name="image" id="updateImagefile" style="display: none" />
+                style="width: 250px; height: 250px" id="profilePic">
+            <input type="file" accept="image/*" name="photo" id="updateImagefile" style="display: none" onchange="document.getElementById('profilePic').src = window.URL.createObjectURL(this.files[0])">
             <label for="updateImagefile">
                 <i class="fa-solid fa-pen appColor fs-4 badgePosition"></i>
             </label>
@@ -49,7 +49,7 @@
                     autocomplete="off">
                 <input type="password" class="form-control" id="confirmPassword" size="25"
                     placeholder="Confirm Password" autocomplete="off">
-                <button type="button" class="btn updatePassword mt-2 fw-medium w-50 align-self-start">Update
+                <button type="button" class="btn updateProfileBtn mt-2 fw-medium w-50 align-self-start">Update
                     Profile</button>
             </div>
 

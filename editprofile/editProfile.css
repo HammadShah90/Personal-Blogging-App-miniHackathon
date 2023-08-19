@@ -47,6 +47,18 @@ body {
     cursor: pointer;
 }
 
+.updateProfileBtn {
+    background-color: #a87afd;
+    color: #ffffff;
+    transition: all 0.5s;
+}
+
+.updateProfileBtn:hover {
+    background-color: #ffffff;
+    color: #a87afd;
+    border: 1px solid #036796;
+}
+
 
 
 
@@ -79,6 +91,12 @@ body {
     .sizing {
         padding-left: 10px;
         padding-right: 10px;
+    }
+    .badgePosition {
+        position: absolute;
+        left: 250px;
+        top: 390px;
+        cursor: pointer;
     }
 
 }

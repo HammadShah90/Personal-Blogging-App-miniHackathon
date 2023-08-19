@@ -20,8 +20,6 @@ import {
     setDoc,
     where,
     updateDoc,
-    arrayUnion,
-    arrayRemove,
 } from "../firebaseConfig.js";
 
 
@@ -54,6 +52,7 @@ const updatePostBtn = document.querySelector("#updatePostBtn");
 // console.log(userFullName);
 
 postBlogBtn.disabled = true;
+let editPostFlag = false;
 
 let currentLoginUserId;
 let postIdGlobal;
@@ -109,34 +108,6 @@ const enablePostBtn = () => {
         postBlogBtn.disabled = false; //button is enabled
     }
 };
-
-const getUserDataToEditProfile = async (userUid) => {
-    // try {
-    //   const docRef = doc(db, "users", userUid);
-    //   const docSnap = await getDoc(docRef);
-
-    //   if (docSnap.exists()) {
-    //     const {
-    //       userFirstName: userFirstNameFromDb,
-    //       userSurName: userSurNameFromDb,
-    //       userName: userNameFromDb,
-    //       userEmail: userEmailFromDb,
-    //       userContactNumber: userContactNumberFromDb,
-    //     } = docSnap.data();
-
-    //     editFirstName.value = userFirstNameFromDb;
-    //     editSurName.value = userSurNameFromDb;
-    //     editUserName.value = userNameFromDb;
-    //     editUserEmail.value = userEmailFromDb;
-    //     editUserMob.value = userContactNumberFromDb;
-    //   } else {
-    //     console.log("No such document!");
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
-};
-
 
 
 const postBlogHandler = async () => {
@@ -212,8 +183,8 @@ async function showBlogs() {
                 ${blogContent}
             </p>
             <div class="d-flex">
-                        <a class="nav-link fw-bold mt-1 appColor me-4" aria-current="page" onclick="deleteBlog('${postId}')" style="cursor: pointer;">Delete</a>
-                        <a class="nav-link fw-bold mt-1 appColor" aria-current="page" onclick="editBlog('${postId}')" style="cursor: pointer;">Edit</a>
+                        <a class="nav-link fw-bold mt-1 appColor me-4" aria-current="page" onclick="deleteBlog('${postId}')" style="cursor: pointer;" id="deleteBlog">Delete</a>
+                        <a class="nav-link fw-bold mt-1 appColor" aria-current="page" onclick="editBlog('${postId}')" style="cursor: pointer;" id="editBlog">Edit</a>
                     </div>
         </div>`;
 
@@ -241,111 +212,34 @@ async function getAutherData(authorUid) {
 
 const editBlog = (uId) => {
     console.log(uId);
+    editPostFlag = true
+    postBlogBtn.innerHTML = "Update Blog"
+    postBlogBtn.removeEventListener('click', postBlogHandler)
+    postBlogBtn.addEventListener('click', updatePostHandler)
     postIdGlobal = uId;
 };
 
 const updatePostHandler = () => {
-    // try {
-    //   if (postInputField.value || postImagefile.files[0]) {
-    //     // console.log("update button working properly");
+    try {
+        console.log(postIdGlobal);
+        const updateDocRef = doc(db, "myBlogs", postIdGlobal);
+        const response = updateDoc(updateDocRef, {
+            blogTitle: blogTitle.value,
+            blogContent: blogInputField.value,
+            blogCreatorId: currentLoginUserId,
+            currentTime: serverTimestamp(),
+        });
 
-    //     // console.log(updatePostInputField.value);
+        showBlogs();
+        blogInputField.value = "";
+        blogTitle.value = "";
+        postBlogBtn.innerHTML = "Publish Blog"
+        postBlogBtn.removeEventListener('click', updatePostHandler)
+        postBlogBtn.addEventListener('click', postBlogHandler)
 
-    //     // var currentDate = new Date();
-
-    //     const file = updatePostImagefile.files[0];
-
-    //     if (file) {
-    //       // console.log(file);
-
-    //       // Create the file metadata
-    //       /** @type {any} */
-    //       const metadata = {
-    //         contentType: "image/jpeg",
-    //       };
-
-    //       // Upload file and metadata to the object 'images/mountains.jpg'
-    //       const storageRef = ref(storage, "postImages/" + file.name);
-    //       const uploadTask = uploadBytesResumable(storageRef, file, metadata);
-
-    //       // Listen for state changes, errors, and completion of the upload.
-    //       uploadTask.on(
-    //         "state_changed",
-    //         (snapshot) => {
-    //           // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-    //           const progress =
-    //             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    //           console.log("Upload is " + progress + "% done");
-    //           switch (snapshot.state) {
-    //             case "paused":
-    //               console.log("Upload is paused");
-    //               break;
-    //             case "running":
-    //               console.log("Upload is running");
-    //               break;
-    //           }
-    //         },
-    //         (error) => {
-    //           // A full list of error codes is available at
-    //           // https://firebase.google.com/docs/storage/web/handle-errors
-    //           switch (error.code) {
-    //             case "storage/unauthorized":
-    //               // User doesn't have permission to access the object
-    //               break;
-    //             case "storage/canceled":
-    //               // User canceled the upload
-    //               break;
-
-    //             // ...
-
-    //             case "storage/unknown":
-    //               // Unknown error occurred, inspect error.serverResponse
-    //               break;
-    //           }
-    //         },
-    //         () => {
-    //           // Upload completed successfully, now we can get the download URL
-    //           getDownloadURL(uploadTask.snapshot.ref).then(
-    //             async (downloadURL) => {
-    //               console.log("File available at", downloadURL);
-
-    //               try {
-    //                 const updateDocRef = doc(db, "myPosts", postIdGlobal);
-    //                 const response = await updateDoc(updateDocRef, {
-    //                   postContent: updatePostInputField.value,
-    //                   postImageUrl: downloadURL,
-    //                 });
-
-    //                 // console.log(docRef.id);
-
-    //                 showPosts();
-    //                 updatePostInputField.value = "";
-    //               } catch (error) {
-    //                 console.error("Error adding document: ", error);
-    //               }
-    //             }
-    //           );
-    //         }
-    //       );
-    //     } else {
-    //       const updateDocRef = doc(db, "myPosts", postIdGlobal);
-    //       const response = updateDoc(updateDocRef, {
-    //         postContent: updatePostInputField.value,
-    //       });
-
-    //       showPosts();
-    //       postInputField.value = "";
-    //     }
-    //   } else {
-    //     console.log("Shabash Bacha post mai kuch likho to sahi");
-    //     Swal.fire({
-    //       icon: "error",
-    //       title: "Shabash Bacha post mai kuch likho to sahi",
-    //     });
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 
@@ -357,13 +251,13 @@ const deleteBlog = async (uId) => {
         title: 'Your work has been saved',
         showConfirmButton: false,
         timer: 1500
-      })
+    })
     try {
         if (uId) {
             await deleteDoc(doc(db, "myBlogs", uId));
             const dPost = document.getElementById(uId);
             dPost.remove();
-            
+
             console.log("Deleted Successfully");
         } else {
             console.log("show some error");
@@ -373,91 +267,6 @@ const deleteBlog = async (uId) => {
     }
 };
 
-const updateProfileHandler = () => {
-    // console.log(
-    //   editFirstName.value,
-    //   editSurName.value,
-    //   editUserName.value,
-    //   editUserEmail.value,
-    //   editUserMob.value,
-    //   profilePic.files[0],
-    //   "update button working properly"
-    // );
-
-    // const file = profilePic.files[0];
-    // // console.log(file.name);
-
-    // // Create the file metadata
-    // // @type {any}
-    // const metadata = {
-    //   contentType: "image/jpeg",
-    // };
-
-    // // Upload file and metadata to the object 'images/mountains.jpg'
-    // if (profilePic.files) {
-    //   const storageRef = ref(storage, "userProfilePics/" + file.name);
-    //   const uploadTask = uploadBytesResumable(storageRef, file, metadata);
-
-    //   // Listen for state changes, errors, and completion of the upload.
-    //   uploadTask.on(
-    //     "state_changed",
-    //     (snapshot) => {
-    //       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-    //       const progress =
-    //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    //       console.log("Upload is " + progress + "% done");
-    //       switch (snapshot.state) {
-    //         case "paused":
-    //           console.log("Upload is paused");
-    //           break;
-    //         case "running":
-    //           console.log("Upload is running");
-    //           break;
-    //       }
-    //     },
-    //     (error) => {
-    //       // A full list of error codes is available at
-    //       // https://firebase.google.com/docs/storage/web/handle-errors
-    //       switch (error.code) {
-    //         case "storage/unauthorized":
-    //           // User doesn't have permission to access the object
-    //           break;
-    //         case "storage/canceled":
-    //           // User canceled the upload
-    //           break;
-
-    //         // ...
-
-    //         case "storage/unknown":
-    //           // Unknown error occurred, inspect error.serverResponse
-    //           break;
-    //       }
-    //     },
-    //     () => {
-    //       // Upload completed successfully, now we can get the download URL
-    //       getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-    //         console.log("File available at", downloadURL);
-    //         try {
-    //           const updateUserProfile = doc(db, "users", currentLoginUserId);
-    //           const response = await updateDoc(updateUserProfile, {
-    //             userContactNumber: editUserMob.value,
-    //             userDescription: editUserDescription.value,
-    //             profilePic: downloadURL,
-    //           });
-
-    //           showPosts();
-    //         } catch (error) {
-    //           console.log(error);
-    //         }
-    //       });
-    //     }
-    //   );
-    // }
-
-    // setTimeout(() => {
-    //   window.location.reload()
-    // }, 9000)
-};
 
 const logoutHandler = async () => {
     try {

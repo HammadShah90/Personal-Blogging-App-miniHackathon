@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- ======>>>>> Favicon Link -->
+    <link rel="icon" href="" sizes="" type="image/png">
+    <!-- ======>>>>> Bootstrap CSS Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- ======>>>>> font-awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ======>>>>> My style.css Link -->
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navBlog">
+        <div class="container d-flex align-items-center">
+            <a class="navbar-brand text-light fw-bold fs-4"" href=" #">Personal Blogging App</a>
+            <div class="d-flex">
+                <a class="nav-link fw-medium mt-1 me-4" aria-current="page" href="../editprofile/eidtProfile.html"
+                    id="loginUserName">Inzamam Malik</a>
+                <a class="nav-link fw-bold mt-1" aria-current="page" href="../signIn/signin.html"
+                    id="logoutBtn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="py-3 border-bottom bg-white sizing">
+        <h2 class="fw-bold ">Dashboard</h2>
+    </header>
+
+    <section class="sizing mt-4">
+        <div class="border p-4 mt-2 mb-3 bgBlogPostColor" style="border-radius: 10px">
+            <form action="" method="post">
+                <input type="text" class="form-control" id="blogTitle" size="25" placeholder="Blog Title"
+                    autocomplete="off">
+                <textarea name="comments" class="form-control mt-2" id="postInputField" style="color: #707070"
+                    placeholder="What's in your mind?"></textarea>
+                <button type="button" class="btn postBlogBtn mt-2 fw-medium">Publish Blog</button>
+            </form>
+        </div>
+    </section>
+
+    <article class="sizing mt-4">
+        <h5 class="fw-bold mb-4" style="color: #036796;">My Blogs</h5>
+        <section class="blogPostArea positionScroll" id="positionScrollPostArea">
+            <!-- <div class="border p-3 mt-2 mb-3 bgBlogPostColor" style="border-radius: 10px">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <img src="../Assets/dummy-image.jpg" alt="" class="rounded me-3"
+                            style="width: 70px; height: 70px" />
+                        <div class="d-flex">
+                            <div class="align-self-end">
+                                <h5 class="mb-0 fw-bold" id="blogPostTitle">
+                                    Introducing Whisper
+                                </h5>
+                                <p class="mb-0 fw-medium" style="color: #036796;">
+                                    <span id="blogPostUserName">
+                                        Elon Musk -
+                                    </span>
+                                    <span id="blogPostTime">
+                                        August 17th, 2023
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde magnam facilis hic. Eius,
+                        reiciendis cum. Fugit natus aliquam recusandae laudantium totam impedit ad, eos, ex earum amet
+                        omnis tempora veniam!
+                        Sit modi vero quod incidunt magnam? Vero, repellat dicta perferendis repellendus magni qui
+                        tempora, dolore ipsa nobis eveniet corporis, iure debitis incidunt non ad veniam esse? Tempora
+                        ipsum accusantium cumque.
+                        Obcaecati debitis laudantium, quibusdam corporis culpa dignissimos optio, assumenda nobis
+                        aliquam esse, similique recusandae consequuntur? Reiciendis aspernatur voluptate veritatis magni
+                        sint eligendi doloremque soluta ipsum suscipit sit. Architecto, dolorem quis.
+                        Sint delectus magnam laborum vel inventore iusto, id porro possimus quo voluptates harum. Ipsum
+                        accusamus necessitatibus alias! Perferendis voluptas eos temporibus voluptates nesciunt soluta.
+                        Corporis quis quaerat vel ad a.
+                        Sapiente natus commodi sit excepturi rem nesciunt voluptatibus nulla non cumque omnis unde
+                        dolores vitae vel fugit ratione recusandae, odit ut dolore. Hic ipsam ab voluptas, voluptatum
+                        delectus adipisci nisi.
+                    </p>
+                    <div class="d-flex">
+                        <a class="nav-link fw-bold mt-1 appColor me-4" aria-current="page" onclick="deleteBlog()" style="cursor: pointer;">Delete</a>
+                        <a class="nav-link fw-bold mt-1 appColor" aria-current="page" onclick="editBlog()" style="cursor: pointer;">Edit</a>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+    </article>
+
+    <!-- ======>>>>> Bootstrap JS Link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <!-- ======>>>>> Moment JS Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"
+        integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- ======>>>>> SweetAlert2 Link -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- ======>>>>> My app.js Link -->
+    <script type="module" src="dashboard.js"></script>
+</body>
+
+</html>

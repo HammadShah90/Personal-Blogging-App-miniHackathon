@@ -15,7 +15,7 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- ======>>>>> My style.css Link -->
-    <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" href="editProfile.css">
 </head>
 
 <body>
@@ -23,35 +23,47 @@
     <nav class="navbar navbar-expand-lg navBlog">
         <div class="container d-flex align-items-center">
             <a class="navbar-brand text-light fw-bold fs-5"" href=" #">Personal Blogging App</a>
-            <a class="nav-link fw-bold mt-1" aria-current="page" href="../signUp/signup.html" id="loginBtn">Signup</a>
+            <a class="nav-link fw-bold mt-1" aria-current="page" href="../signUp/signup.html" id="logoutBtn">Logout</a>
         </div>
     </nav>
 
     <header class="py-3 border-bottom bg-white sizing">
-        <h2 class="fw-bold ">Login</h2>
+        <h2 class="fw-bold ">Profile</h2>
     </header>
 
-    <section class="loginMainPage">
-        <div class="loginPage">
-            <form action="get" class="loginInput">
-                <div class="loginEmail login">
-                    <i class="fa-solid fa-envelope"></i>
-                    <input type="email" class="form-control" id="loginEmail" size="25" placeholder="Email Address"
-                        autocomplete="off">
-                </div>
-                <div class="loginPassword login">
-                    <i class="fa-solid fa-lock me-1"></i>
-                    <div class="input-group flex-nowrap">
-                        <input type="password" class="form-control" id="loginPassword" placeholder="Password"
-                            aria-label="email" aria-describedby="addon-wrapping" autocomplete="off">
-                        <i class="fa-solid fa-eye input-group-text icon" id="showPassword"></i>
-                    </div>
-                </div>
-            </form>
+    <section class="sizing mt-4">
+        <div class="border p-4 mt-2 mb-3 editProfileBgColor" style="border-radius: 10px">
+            <img src="../Assets/dummy-image.jpg" alt="" class="rounded me-3 editProfileImg"
+                style="width: 250px; height: 250px" />
+            <input type="file" accept="image/*" name="image" id="updateImagefile" style="display: none" />
+            <label for="updateImagefile">
+                <i class="fa-solid fa-pen appColor fs-4 badgePosition"></i>
+            </label>
 
-            <button type="button" class="btn loginBtn">Sign In</button>
+            <div class="editFullName grid">
+                <input type="text" class="form-control border-bottom border-end border-3" id="editFirstName"
+                    placeholder="First name" />
+                <input type="text" class="form-control border-bottom border-end border-3" id="editSurName"
+                    placeholder="Surname" />
+            </div>
+
+
+            <div class="gap-3">
+                <h5>Password</h5>
+                <input type="password" class="form-control" id="oldPassword" size="25" placeholder="Old Password"
+                    autocomplete="off">
+                <input type="password" class="form-control" id="newPassword" size="25" placeholder="New Password"
+                    autocomplete="off">
+                <input type="password" class="form-control" id="confirmPassword" size="25"
+                    placeholder="Confirm Password" autocomplete="off">
+            </div>
+
+            <button type="button" class="btn updatePassword mt-2 fw-medium">Update password</button>
+
         </div>
     </section>
+
+
 
 
     <!-- ======>>>>> Bootstrap JS Link -->
@@ -65,7 +77,7 @@
     <!-- ======>>>>> SweetAlert2 Link -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- ======>>>>> My app.js Link -->
-    <script type="module" src="signin.js"></script>
+    <script type="module" src="editProfile.js"></script>
 </body>
 
 </html>

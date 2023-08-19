@@ -33,32 +33,26 @@
 
     <section class="sizing mt-4">
         <div class="border p-4 mt-2 mb-3 editProfileBgColor" style="border-radius: 10px">
-            <img src="../Assets/dummy-image.jpg" alt="" class="rounded me-3 editProfileImg"
+            <img src="../Assets/dummy-image.jpg" alt="" class="rounded me-3 editProfileImg mb-3"
                 style="width: 250px; height: 250px" />
             <input type="file" accept="image/*" name="image" id="updateImagefile" style="display: none" />
             <label for="updateImagefile">
                 <i class="fa-solid fa-pen appColor fs-4 badgePosition"></i>
             </label>
 
-            <div class="editFullName grid">
-                <input type="text" class="form-control border-bottom border-end border-3" id="editFirstName"
-                    placeholder="First name" />
-                <input type="text" class="form-control border-bottom border-end border-3" id="editSurName"
-                    placeholder="Surname" />
-            </div>
-
-
-            <div class="gap-3">
-                <h5>Password</h5>
+            <div class="editFullName d-flex  flex-column gap-3">
+                <input type="text" class="form-control" id="editFirstName" placeholder="First name" autocomplete="off">
+                <input type="text" class="form-control" id="editSurName" placeholder="Surname" autocomplete="off">
                 <input type="password" class="form-control" id="oldPassword" size="25" placeholder="Old Password"
                     autocomplete="off">
                 <input type="password" class="form-control" id="newPassword" size="25" placeholder="New Password"
                     autocomplete="off">
                 <input type="password" class="form-control" id="confirmPassword" size="25"
                     placeholder="Confirm Password" autocomplete="off">
+                <button type="button" class="btn updatePassword mt-2 fw-medium w-50 align-self-start">Update
+                    Profile</button>
             </div>
 
-            <button type="button" class="btn updatePassword mt-2 fw-medium">Update password</button>
 
         </div>
     </section>

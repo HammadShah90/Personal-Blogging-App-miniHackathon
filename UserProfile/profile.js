@@ -1,6 +1,5 @@
 import {
     auth,
-    onAuthStateChanged,
     doc,
     getDoc,
     db,
@@ -9,10 +8,7 @@ import {
     where,
     getDocs,
     orderBy,
-    deleteDoc,
-    signOut,
-    updateDoc,
-} from "./firebaseConfig.js";
+} from "../firebaseConfig.js";
 
 const profileUserFullname = document.querySelector("#profileUserFullname");
 const profileUserName = document.querySelector("#profileUserName");
@@ -132,5 +128,3 @@ async function getAutherData(authorUid) {
 }
 
 showBlogs()
-
-

@@ -23,14 +23,7 @@ import {
     arrayUnion,
     arrayRemove,
   } from "../firebaseConfig.js";
-  
-  // const isLoggedInUser = JSON.parse(localStorage.getItem("isLoggedInUser"))
-  
-  // if (!isLoggedInUser) {
-  //     window.location.href = "../index.html";
-  // }
-  
-  // const userPosts = JSON.parse(localStorage.getItem('posts')) || []
+
   
   const userFullName = document.querySelector("#loginUserName");
   const userProfileName = document.querySelector("#userProfileName");

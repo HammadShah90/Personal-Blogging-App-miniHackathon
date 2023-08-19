@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(255, 244, 230);
+}
+
+.appColor {
+    color: #a87afd;
+}
+
+.navBlog {
+    background-color: #a87afd;
+    color: #ffffff;
+}
+
+#loginBtn {
+    color: #ffffff;
+    transition: all 0.5s;
+}
+
+#loginBtn:hover {
+    color: #036796;
+}
+
+.sizing {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.bgBlogPostColor {
+    background-color: #fafaf6;
+}
+.positionScroll {
+    overflow-y: scroll;
+    height: 75vh;
+}
+
+#positionScrollPostArea::-webkit-scrollbar {
+    width: 5px;
+}
+
+#positionScrollPostArea::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #909090;
+    border: 1px solid #aaaaaa;
+}
+
+#positionScrollPostArea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #4a8ff7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===>>> Media Query */
+
+/* ===>>> Smartphones */
+@media only screen and (max-width: 500px) {
+    .sizing {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+}
+
+/* ===>>> Tablet */
+@media(min-width: 501px) and (max-width: 768px) {
+    .sizing {
+        padding-left: 34px;
+        padding-right: 34px;
+    }
+
+}
+
+/* ===>>> Normal */
+@media(min-width: 769px) and (max-width: 1200px) {
+    .sizing {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+}
+
+/* ===>>> Widescreen */
+@media(min-width: 1201px) {
+    .sizing {
+        padding-left: 76px;
+        padding-right: 76px;
+    }
+}
+
+
+/* ===>>> Landscape */
+/* @media(max-height: 500px) {
+    body {
+        background: rgb(255, 166, 0);
+    }
+
+} */

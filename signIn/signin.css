@@ -36,10 +36,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 75vh;
-    background: url(./Assets/blue.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
 }
 
 .loginPage {

@@ -31,8 +31,42 @@
     <h2 class="fw-bold ">Signup</h2>
   </header>
 
-  <section>
+  <section class="signupMainPage">
+    <div class="signupPage">
+      <form action="get" class="signupForm">
+        <div class="signUpBox signUp">
+          <i class="fa-solid fa-id-badge me-1"></i>
+          <input type="text" class="form-control" id="firstName" size="25" placeholder="First name" autocomplete="off">
+        </div>
+        <div class="signUpBox signUp">
+          <i class="fa-solid fa-image-portrait me-1"></i>
+          <input type="text" class="form-control" id="lastName" size="25" placeholder="Last name" autocomplete="off">
+        </div>
+        <div class="signUpBox signUp">
+          <i class="fa-solid fa-user me-1"></i>
+          <input type="text" class="form-control" id="userName" size="25" placeholder="Username" autocomplete="off">
+        </div>
+        <div class="signUpBox signUp">
+          <i class="fa-solid fa-phone"></i>
+          <input type="number" class="form-control" id="contactNumber" size="25" placeholder="Contact no"
+            autocomplete="off">
+        </div>
+        <div class="signUpBox signUp">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" class="form-control" id="email" size="25" placeholder="Email Address" autocomplete="off">
+        </div>
+        <div class="signupPassword signUp">
+          <i class="fa-solid fa-lock me-1"></i>
+          <div class="input-group flex-nowrap">
+            <input type="password" class="form-control" id="password" placeholder="Password" aria-label="email"
+              aria-describedby="addon-wrapping" autocomplete="off">
+            <i class="fa-solid fa-eye input-group-text icon" id="showPassword"></i>
+          </div>
+        </div>
+      </form>
 
+      <button type="button" class="btn signUpBtn mb-4 mt-4">Sign up</button>
+    </div>
   </section>
 
 

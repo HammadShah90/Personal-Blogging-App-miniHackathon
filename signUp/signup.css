@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: rgb(255, 244, 230);
 }
 
@@ -30,6 +30,120 @@ body{
     padding-left: 40px;
     padding-right: 40px;
 }
+
+.signupMainPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.signupPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 50px;
+    transition: all 0.5s;
+    border: 2px solid #a87afd;
+}
+
+.signupForm {
+    display: grid;
+    gap: 1.5em;
+}
+
+.signUpBox input {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #a87afd;
+}
+
+.signUpBox i,
+.signupPassword i {
+    font-size: 16px;
+}
+
+.signupPassword input {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #a87afd;
+}
+
+.signUp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #cac3a2;
+}
+
+.signUp:focus-visible {
+    outline: none;
+}
+
+.signUp input:focus-visible {
+    outline: none;
+}
+
+.signupPassword input::placeholder {
+    color: #ceb5fd;
+    opacity: 0.6;
+}
+
+.signupPassword input::placeholder:focus {
+    color: #ceb5fd;
+    opacity: 0.6;
+}
+
+.signUpBox input::placeholder {
+    color: #ceb5fd;
+    opacity: 0.6;
+}
+
+.signUpBtn {
+    align-self: center;
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #4cc4f3;
+    color: #eec983;
+    border-radius: 10px;
+    width: 50%;
+    transition: all 0.5s;
+}
+
+.signUpBtn:hover {
+    color: #f7d16b;
+    background-color: #a87afd;
+}
+
+.icon {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.form-control:focus {
+    color: #b38dfa;
+    background-color: transparent;
+    outline: 0;
+    box-shadow: none;
+
+}
+
+i,
+#showPassword {
+    color: #d4c21d;
+}
+
 
 
 
@@ -62,7 +176,7 @@ body{
         padding-left: 10px;
         padding-right: 10px;
     }
-    
+
 }
 
 /* ===>>> Tablet */

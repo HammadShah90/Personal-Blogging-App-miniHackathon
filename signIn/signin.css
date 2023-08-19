@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(255, 244, 230);
+}
+
+.appColor {
+    color: #a87afd;
+}
+
+.navBlog {
+    background-color: #a87afd;
+    color: #ffffff;
+}
+
+#loginBtn {
+    color: #ffffff;
+    transition: all 0.5s;
+}
+
+#loginBtn:hover {
+    color: #036796;
+}
+
+.sizing {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.loginMainPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    background: url(./Assets/blue.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.loginPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 50px;
+    transition: all 0.5s;
+    border: 2px solid #a87afd;
+}
+
+.loginInput {
+    display: grid;
+    gap: 1.5em;
+}
+
+.loginEmail input {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #a87afd;
+}
+
+.loginEmail i, .loginPassword i {
+    font-size: 16px;
+}
+
+.loginPassword input {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #a87afd;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #cac3a2;
+}
+
+.login:focus-visible {
+    outline: none;
+}
+
+.loginPassword input::placeholder, .loginEmail input::placeholder {
+    color: #ceb5fd;
+    opacity: 0.6;
+}
+
+.loginBtn {
+    align-self: center;
+    margin-top: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 1px solid #4cc4f3;
+    color: #eec983;
+    border-radius: 10px;
+    width: 50%;
+    transition: all 0.5s;
+}
+
+.loginBtn:hover {
+    color: #f7d16b;
+    background-color: #a87afd;
+}
+
+.icon {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.form-control:focus {
+    color: #b38dfa;
+    background-color: transparent;
+    outline: 0;
+    box-shadow: none;
+
+}
+
+i,
+#showPassword {
+    color: #d4c21d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===>>> Media Query */
+
+/* ===>>> Smartphones */
+@media only screen and (max-width: 500px) {
+    .sizing {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+}
+
+/* ===>>> Tablet */
+@media(min-width: 501px) and (max-width: 768px) {
+    .sizing {
+        padding-left: 34px;
+        padding-right: 34px;
+    }
+
+}
+
+/* ===>>> Normal */
+@media(min-width: 769px) and (max-width: 1200px) {
+    .sizing {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+}
+
+/* ===>>> Widescreen */
+@media(min-width: 1201px) {
+    .sizing {
+        padding-left: 76px;
+        padding-right: 76px;
+    }
+}
+
+
+/* ===>>> Landscape */
+/* @media(max-height: 500px) {
+    body {
+        background: rgb(255, 166, 0);
+    }
+
+} */

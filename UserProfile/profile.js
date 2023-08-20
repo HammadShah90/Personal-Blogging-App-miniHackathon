@@ -22,14 +22,6 @@ const navProfilePic = document.querySelector("#navProfilePic");
 const followersCount = document.querySelector(".followersCount");
 const followingCount = document.querySelector(".followingCount");
 
-// console.log(followersCount);
-// console.log(followingCount);
-// console.log(profileUserDescription);
-// console.log(profileUserPic);
-
-let currentLoginUserId;
-let myFollowings;
-
 // ===========>>>>>>>> Get User data <<<<<<<<=========
 
 // onAuthStateChanged(auth, (user) => {

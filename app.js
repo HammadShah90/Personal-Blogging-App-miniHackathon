@@ -19,12 +19,8 @@ const profileUserName = document.querySelector("#profileUserName");
 const profileUserDescription = document.querySelector(
     "#profileUserDescription"
 );
-const profileUserPic = document.querySelector("#profileUserPic");
+let greeting = document.querySelector(".greeting");
 const blogPostArea = document.querySelector(".blogPostArea");
-const logOutbutton = document.querySelector("#logOut");
-const navProfilePic = document.querySelector("#navProfilePic");
-const followersCount = document.querySelector(".followersCount");
-const followingCount = document.querySelector(".followingCount");
 
 // console.log(followersCount);
 // console.log(followingCount);
@@ -32,7 +28,27 @@ const followingCount = document.querySelector(".followingCount");
 // console.log(profileUserPic);
 
 let currentLoginUserId;
-let myFollowings;
+
+const greetingToUser = () => {
+    let currentTime = new Date()
+    let hours = currentTime.getHours()
+    // console.log(currentTime.getHours());
+    if (hours < 12) {
+        console.log('Good Morning');
+        greeting.innerHTML = `Good Morning Readers!`
+    } else if (hours >= 12 && hours <= 17) {
+        console.log('Good Afternoon');
+        greeting.innerHTML = `Good Afternoon Readers!`
+    } else if (hours >= 17 && hours <= 20) {
+        console.log('Good Evening');
+        greeting.innerHTML = `Good Evening Readers!`
+    } else if (hours >= 20 && hours <= 24) {
+        console.log('Good Night');
+        greeting.innerHTML = `Good Night Readers!`
+    }
+}
+
+greetingToUser()
 
 // ===========>>>>>>>> Get User data <<<<<<<<=========
 

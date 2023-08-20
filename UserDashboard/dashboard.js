@@ -113,19 +113,31 @@ const enablePostBtn = () => {
 const postBlogHandler = async () => {
     // console.log(blogTitle.value);
     // console.log(postInputField.value);
-    try {
-        const docRef = addDoc(collection(db, "myBlogs"), {
-            blogTitle: blogTitle.value,
-            blogContent: blogInputField.value,
-            blogCreatorId: currentLoginUserId,
-            currentTime: serverTimestamp(),
-        });
-
-        showBlogs();
-        blogTitle.value = "";
-        blogInputField.value = "";
-    } catch (error) {
-        console.log(error);
+    if (blogTitle.value.length < 5 || blogTitle.value.length > 50) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Blog title must be between 5 to 50 characters'
+          })
+    } else if (blogInputField.value.length < 100 || blogInputField.value.length > 3000) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Your Text must be between 100 to 3000 characters'
+          })
+    } else {
+        try {
+            const docRef = await addDoc(collection(db, "myBlogs"), {
+                blogTitle: blogTitle.value,
+                blogContent: blogInputField.value,
+                blogCreatorId: currentLoginUserId,
+                currentTime: serverTimestamp(),
+            });
+    
+            showBlogs();
+            blogTitle.value = "";
+            blogInputField.value = "";
+        } catch (error) {
+            console.log(error);
+        }
     }
 };
 
@@ -149,7 +161,7 @@ async function showBlogs() {
             // console.log(currentTime.toDate());
 
             const autherDetails = await getAutherData(blogCreatorId);
-            console.log(autherDetails);
+            // console.log(autherDetails);
 
             const postElement = document.createElement("div");
             postElement.setAttribute("class", "border p-3 mt-2 mb-3 bgBlogPostColor");
@@ -212,7 +224,7 @@ async function getAutherData(authorUid) {
 }
 
 const editBlog = (uId) => {
-    console.log(uId);
+    // console.log(uId);
     editPostFlag = true
     postBlogBtn.innerHTML = "Update Blog"
     postBlogBtn.removeEventListener('click', postBlogHandler)
@@ -222,7 +234,7 @@ const editBlog = (uId) => {
 
 const updatePostHandler = () => {
     try {
-        console.log(postIdGlobal);
+        // console.log(postIdGlobal);
         const updateDocRef = doc(db, "myBlogs", postIdGlobal);
         const response = updateDoc(updateDocRef, {
             blogTitle: blogTitle.value,
@@ -245,7 +257,7 @@ const updatePostHandler = () => {
 
 
 const deleteBlog = async (uId) => {
-    console.log(uId);
+    // console.log(uId);
     Swal.fire({
         position: 'center',
         icon: 'success',
@@ -273,6 +285,7 @@ const logoutHandler = async () => {
     try {
         const response = await signOut(auth);
         console.log(response);
+        window.location.href = `../index.html`
     } catch (error) {
         console.log(error);
     }
